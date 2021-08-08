@@ -15,8 +15,6 @@
   データベース作成
 
   ```sql
-
-
   CREATE DATABASE takunomo_db;
   CREATE USER takunomo_user IDENTIFIED BY '1234';
   GRANT ALL ON takunomo_db.* TO takunomo_user;
@@ -47,7 +45,7 @@ CREATE TABLE users (
 CREATE TABLE recipes (
   id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT NOT NULL, 
-  recipe_name VARCHAR(30) NOT NULL,
+  name VARCHAR(30) NOT NULL,
   ingredients TEXT NOT NULL,
   recipe TEXT NOT NULL,
   food_img VARCHAR(255) NOT NULL,
@@ -99,11 +97,11 @@ CREATE TABLE reviews (
   review TEXT NOT NULL
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONSTRAINT fk_reviews_user_id
+  CONSTRAINT fk_reviews_user_id
     FOREIGN KEY (user_id) 
     REFERENCES  users (id)
     ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT fk_favorites_recipe_id
+  CONSTRAINT fk_reviwes_recipe_id
     FOREIGN KEY (recipe_id) 
     REFERENCES  recipes (id)
     ON DELETE CASCADE ON UPDATE CASCADE
