@@ -44,7 +44,7 @@ CREATE TABLE users (
 
 CREATE TABLE recipes (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  user_id INT NOT NULL, 
+  user_id INT , 
   name VARCHAR(30) NOT NULL,
   ingredients TEXT NOT NULL,
   recipe TEXT NOT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE liquors (
 
 CREATE TABLE favorites (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  user_id INT NOT NULL,
+  user_id INT ,
   recipe_id INT NOT NULL,
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -92,7 +92,7 @@ CREATE TABLE favorites (
 
 CREATE TABLE reviews (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  user_id NOT NULL,
+  user_id INT ,
   recipe_id NOT NULL,
   review TEXT NOT NULL
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
