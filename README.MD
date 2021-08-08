@@ -71,7 +71,7 @@ CREATE TABLE liquors (
   CONSTRAINT fk_liquors_category_id
     FOREIGN KEY (category_id) 
     REFERENCES  categories (id)
-    ON DELETE CASCADE ON UPDATE CASCADE,
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE favorites (
@@ -93,8 +93,8 @@ CREATE TABLE favorites (
 CREATE TABLE reviews (
   id INT PRIMARY KEY AUTO_INCREMENT,
   user_id INT ,
-  recipe_id NOT NULL,
-  review TEXT NOT NULL
+  recipe_id INT NOT NULL,
+  review TEXT NOT NULL,
   created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   CONSTRAINT fk_reviews_user_id
